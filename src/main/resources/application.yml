@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: kotlin-coroutines-demo
+
+  r2dbc:
+    url: r2dbc:h2:mem:///demodb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  level:
+    com.example.demo: DEBUG
